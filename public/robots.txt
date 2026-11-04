@@ -1,10 +1,12 @@
-# EdgeMirror — https://mirror.137101.xyz
+# Public pages and rendering assets are crawlable.
 User-agent: *
 Allow: /
-Disallow: /api/
 
-# Ad / tracker crawlers have no use here.
-User-agent: Mediapartners-Google
-Allow: /
+# API responses and download/registry proxy endpoints are not site pages.
+Disallow: /api/
+Disallow: /gh/
+Disallow: /sf/
+Disallow: /v2/
+Disallow: /token
 
 Sitemap: https://mirror.137101.xyz/sitemap.xml

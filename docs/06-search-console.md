@@ -72,6 +72,34 @@ npm run seo:inspect   # 只查询首页的已有索引状态
 - 若需要撤销错误提交，可在 Search Console 的 Sitemaps 页面移除记录；这不会删除
   Google 已发现的网址，也不等于从搜索结果移除页面。
 
+## “无法抓取”的排查记录（2026-11-04）
+
+线上标准 sitemap XML 与 robots.txt 均能返回 200，robots 允许首页、sitemap 与静态资源。
+Search Console API 当时仍报告 `isPending: true`，未返回 `lastDownloaded`；不能从空白的
+“上次读取时间”推断为 XML 错误，也不能把提交回执当作抓取成功。
+
+Cloudflare 安全事件确认 `Python-urllib/3.14` 请求 `/sitemap.xml` 被 `source: bic`、
+`ruleId: bic` 拦成 403。使用 Googlebot / Google-InspectionTool User-Agent 的本机探测
+返回 200；这些探测不是 Google 实际抓取的证据，事件中也未发现 Googlebot 被拦。
+
+已配置范围仅限 `mirror.137101.xyz` 的 `/robots.txt` 与 `/sitemap.xml` 的 Configuration Rule：
+
+```text
+phase: http_config_settings
+expression: (http.host eq "mirror.137101.xyz" and http.request.uri.path in {"/robots.txt" "/sitemap.xml"})
+action: set_config
+action_parameters: {"bic": false}
+ref: edgemirror_public_crawl_files
+```
+
+规则集 ID：`6c79d6afed694a62844289a5be223418`；规则 ID：`24eb11bebbc944b1a53aed4214e41cfc`。
+回滚只需禁用该规则，无需变更整个域的安全配置。此调整解决已复现的爬虫 BIC 障碍，
+Google 报错的最终原因仍需其处理结果或真实抓取记录验证。
+
+`robots.txt` 统一允许公开页面和渲染资源，并排除 `/api/`、`/gh/`、`/sf/`、`/v2/` 与
+`/token`，避免将接口和代理内容当作站点页面抓取；robots 的禁止抓取不等于从索引移除。
+sitemap 只列独立规范首页，不列页内锚点。两个文件显式设置 MIME 类型与 300 秒缓存。
+
 ## 官方依据
 
 以下文档已于 2026-11-04 打开核对：
