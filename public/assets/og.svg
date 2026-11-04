@@ -29,7 +29,7 @@
       <path d="M-12 19h24"/>
     </g>
   </g>
-  <text x="164" y="136" font-family="'JetBrains Mono', monospace" font-size="34" font-weight="700" fill="#f1f5f9">EdgeMirror</text>
+  <text x="164" y="136" font-family="'JetBrains Mono', monospace" font-size="34" font-weight="700" fill="#f1f5f9">FetchPort</text>
 
   <text x="80" y="268" font-family="'Inter', sans-serif" font-size="62" font-weight="700" fill="#f1f5f9" letter-spacing="-1.5">全球代码分发</text>
   <text x="80" y="346" font-family="'Inter', sans-serif" font-size="62" font-weight="700" fill="url(#acc)" letter-spacing="-1.5">加速网关</text>
@@ -47,5 +47,5 @@
     <text x="514" y="499">多节点切换</text>
   </g>
 
-  <text x="1120" y="560" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="22" fill="#7c8ba1">mirror.137101.xyz</text>
+  <text x="1120" y="560" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="22" fill="#7c8ba1">fetchport.137101.xyz</text>
 </svg>

@@ -6,9 +6,9 @@
 |---|---|
 | GA4 账号 | Soulock（`accounts/413724658`） |
 | 属性 | `properties/561080392` |
-| 数据流 | EdgeMirror（`dataStreams/16235261657`） |
+| 数据流 | FetchPort（`dataStreams/16235261657`） |
 | 测量 ID | `G-CHDLLWY51X` |
-| defaultUri | `https://mirror.137101.xyz` |
+| defaultUri | `https://fetchport.137101.xyz` |
 | GCP 项目 | `soulock`（890279449637） |
 
 ## 站点侧实现
@@ -116,7 +116,7 @@ curl -s --proxy http://127.0.0.1:7897 \
 curl -s --proxy http://127.0.0.1:7897 -X POST \
   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
   "https://analyticsadmin.googleapis.com/v1beta/properties/561080392/dataStreams" \
-  --data '{"type":1,"displayName":"EdgeMirror","webStreamData":{"defaultUri":"https://mirror.137101.xyz"}}'
+  --data '{"type":1,"displayName":"FetchPort","webStreamData":{"defaultUri":"https://fetchport.137101.xyz"}}'
 ```
 
 常见错误：
@@ -135,7 +135,7 @@ curl -s --proxy http://127.0.0.1:7897 -X POST \
 curl -s --proxy http://127.0.0.1:7897 -X PATCH \
   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
   "https://analyticsadmin.googleapis.com/v1beta/properties/561080392/dataStreams/16235261657?updateMask=displayName" \
-  --data '{"displayName":"EdgeMirror"}'
+  --data '{"displayName":"FetchPort"}'
 ```
 
 ### 实时报表（验证用）
@@ -152,7 +152,7 @@ curl -s --proxy http://127.0.0.1:7897 -X POST \
 正常返回示例：
 
 ```json
-{"rows":[{"dimensionValues":[{"value":"EdgeMirror — GitHub / Docker / SourceForge 全球加速网关"}],
+{"rows":[{"dimensionValues":[{"value":"FetchPort — GitHub / Docker / SourceForge 全球加速网关"}],
           "metricValues":[{"value":"1"},{"value":"2"}]}]}
 ```
 

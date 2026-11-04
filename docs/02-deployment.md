@@ -4,13 +4,13 @@
 
 | 项 | 值 |
 |---|---|
-| 线上域名 | `https://mirror.137101.xyz` |
-| GitHub 仓库 | `CloudflareFree/edgemirror`（public） |
+| 线上域名 | `https://fetchport.137101.xyz` |
+| GitHub 仓库 | `CloudflareFree/fetchport`（public） |
 | Cloudflare Account | `8927f17b0f67ecd3536a7e9ba831c0f4` |
 | Zone | `137101.xyz`（`d0da6c7c024f89a9cf1ad4cdefaa3c1f`） |
 | Pages 项目 | `edgemirror` → `edgemirror-9k1.pages.dev` |
 | GA4 属性 | Soulock / `properties/561080392` |
-| GA4 测量 ID | `G-CHDLLWY51X`（数据流 EdgeMirror） |
+| GA4 测量 ID | `G-CHDLLWY51X`（数据流 FetchPort） |
 | 本地目录 | `/opt/cloudflare-sites/edgemirror` |
 
 ## 自动部署链路
@@ -23,7 +23,7 @@ Cloudflare Pages 拉取 GitHub 代码
    clone_repo → build → deploy
         │
         ▼
-https://mirror.137101.xyz
+https://fetchport.137101.xyz
 ```
 
 **不需要在本地跑任何部署命令。** 验证一次部署是否真的由 Git 触发：
@@ -101,7 +101,7 @@ curl -sX POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT
 ### 域名与 DNS
 
 ```bash
-cf pages projects domains create edgemirror --name mirror.137101.xyz
+cf pages projects domains create edgemirror --name fetchport.137101.xyz
 
 curl -sX POST "https://api.cloudflare.com/client/v4/zones/d0da6c7c024f89a9cf1ad4cdefaa3c1f/dns_records" \
   -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" \
@@ -163,7 +163,7 @@ GitHub 相关：`github.com` 的 release 下载会超时，走 `ghfast.top` 代�
 ### 看节点健康
 
 ```bash
-curl -s https://mirror.137101.xyz/api/health | jq '.summary'
+curl -s https://fetchport.137101.xyz/api/health | jq '.summary'
 ```
 
 健康探测直连镜像站且**不跟随重定向**，避免每次体检都下载一遍探测文件。

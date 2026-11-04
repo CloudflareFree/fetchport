@@ -6,7 +6,7 @@
 浏览器 / curl / docker
         │
         ▼
-Cloudflare Edge (mirror.137101.xyz, proxied CNAME)
+Cloudflare Edge (fetchport.137101.xyz, proxied CNAME)
         │
         ├─── 静态资源 ──▶ Pages（public/，全球缓存）
         │

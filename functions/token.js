@@ -68,7 +68,7 @@ export async function onRequestGet(ctx) {
       // account lifts the limit substantially:
       //   npx wrangler pages secret put DOCKERHUB_USER
       //   npx wrangler pages secret put DOCKERHUB_TOKEN
-      const tokenHeaders = { "user-agent": "EdgeMirror/1.0" };
+      const tokenHeaders = { "user-agent": "FetchPort/1.0" };
       const hubUser = ctx.env?.DOCKERHUB_USER;
       const hubPass = ctx.env?.DOCKERHUB_TOKEN;
       if (reg.id === "dockerhub" && hubUser && hubPass) {

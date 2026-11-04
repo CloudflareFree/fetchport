@@ -15,7 +15,7 @@ import { onRequestGet as tokenGet } from "../functions/token.js";
 import { onRequestGet as nodesGet } from "../functions/api/nodes.js";
 import { onRequestGet as healthGet } from "../functions/api/health.js";
 
-const BASE = "https://mirror.137101.xyz";
+const BASE = "https://fetchport.137101.xyz";
 
 let pass = 0;
 let fail = 0;
@@ -38,7 +38,7 @@ function group(title) {
 
 const req = (path, init = {}) =>
   new Request(`${BASE}${path}`, {
-    headers: { "user-agent": "EdgeMirror-Test/1.0", ...(init.headers || {}) },
+    headers: { "user-agent": "FetchPort-Test/1.0", ...(init.headers || {}) },
     ...init,
   });
 
@@ -55,7 +55,7 @@ async function testConfig() {
   const data = await res.json();
 
   ok("GET /api/nodes returns 200", res.status === 200, `status=${res.status}`);
-  ok("has site metadata", data.site?.name === "EdgeMirror");
+  ok("has site metadata", data.site?.name === "FetchPort");
   ok("has >= 1 node", Array.isArray(data.nodes) && data.nodes.length >= 1,
     `${data.nodes?.length} nodes`);
   ok("all 3 services present",
@@ -133,7 +133,7 @@ async function testGithub() {
   // explicitly selects the direct node the Worker does serve bytes, so that
   // path still has to be byte-exact — including resumable ranges, which is
   // where the Fastly compressed-range bug lived.
-  const D = { headers: { "user-agent": "EdgeMirror-Test/1.0" } };
+  const D = { headers: { "user-agent": "FetchPort-Test/1.0" } };
   const direct = (p, init = {}) =>
     call(ghGet, p.includes("?") ? p : `${p}?node=direct`,
       { headers: { ...D.headers, ...(init.headers || {}) } });
@@ -313,7 +313,7 @@ async function testSeo() {
   const html = await fs.readFile("public/index.html", "utf8");
 
   const checks = [
-    ["<title> present", /<title>EdgeMirror[^<]*<\/title>/.test(html)],
+    ["<title> present", /<title>FetchPort[^<]*<\/title>/.test(html)],
     ["meta description", /name="description"/.test(html)],
     ["canonical link", /rel="canonical"/.test(html)],
     ["og:title", /property="og:title"/.test(html)],
@@ -362,12 +362,12 @@ async function testSeo() {
   const sitemap = await fs.readFile("public/sitemap.xml", "utf8");
   ok("sitemap: valid urlset", /<urlset[^>]+sitemaps\.org/.test(sitemap));
   ok("sitemap: has canonical URL",
-    sitemap.includes("<loc>https://mirror.137101.xyz/</loc>"));
+    sitemap.includes("<loc>https://fetchport.137101.xyz/</loc>"));
 }
 
 // ---------------------------------------------------------------------------
 
-console.log("\x1b[1m\x1b[36mEdgeMirror — integration suite\x1b[0m");
+console.log("\x1b[1m\x1b[36mFetchPort — integration suite\x1b[0m");
 console.log("\x1b[2mreal handlers, real upstreams, no mocks\x1b[0m");
 
 const suites = [

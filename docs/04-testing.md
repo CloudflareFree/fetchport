@@ -15,7 +15,7 @@ node test/e2e.mjs                # 30 项
 
 ```js
 const res = await onRequestGet({
-  request: new Request("https://mirror.137101.xyz/gh/…", { headers: { range: "bytes=0-49" } }),
+  request: new Request("https://fetchport.137101.xyz/gh/…", { headers: { range: "bytes=0-49" } }),
   env: {}, params: {},
 });
 ```
@@ -38,7 +38,7 @@ const res = await onRequestGet({
 用 CDP 驱动无头 Chrome，验证真实浏览器行为：
 
 ```bash
-node test/e2e.mjs https://mirror.137101.xyz
+node test/e2e.mjs https://fetchport.137101.xyz
 ```
 
 覆盖：页面加载、三种服务切换、链接转换正确性、节点切换、键盘导航、
@@ -89,7 +89,7 @@ node test/probe.mjs <url> <js-file>     # 在真实页面里执行任意表达�
 ```
 
 ```bash
-node test/probe.mjs https://mirror.137101.xyz /tmp/q.js
+node test/probe.mjs https://fetchport.137101.xyz /tmp/q.js
 ```
 
 ## 部署后必做的验证
@@ -102,13 +102,13 @@ cf pages projects deployments list --project-name edgemirror --env production
 #    要求 trigger=github:push 且 latest_stage=success
 
 # 2. 关键路径
-curl -sI https://mirror.137101.xyz/gh/raw.githubusercontent.com/torvalds/linux/master/README
+curl -sI https://fetchport.137101.xyz/gh/raw.githubusercontent.com/torvalds/linux/master/README
 #    期望 302 + content-length: 0 + location 指向镜像站
 
 # 3. 白名单生效
-curl -s -o /dev/null -w '%{http_code}\n' https://mirror.137101.xyz/gh/evil.example.com/x
+curl -s -o /dev/null -w '%{http_code}\n' https://fetchport.137101.xyz/gh/evil.example.com/x
 #    期望 400
 
 # 4. 页面与浏览器行为
-node test/e2e.mjs https://mirror.137101.xyz
+node test/e2e.mjs https://fetchport.137101.xyz
 ```

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# EdgeMirror — one-shot deploy to Cloudflare Pages + custom domain.
+# FetchPort — one-shot deploy to Cloudflare Pages + custom domain.
 #
 # Prerequisites:
 #   gh   authenticated with access to the CloudflareFree org
@@ -9,7 +9,7 @@
 set -euo pipefail
 
 PROJECT="edgemirror"
-DOMAIN="mirror.137101.xyz"
+DOMAIN="fetchport.137101.xyz"
 ZONE="137101.xyz"
 ORG="CloudflareFree"
 REPO="edgemirror"

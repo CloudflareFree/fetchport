@@ -1,5 +1,5 @@
 /**
- * EdgeMirror — node configuration.
+ * FetchPort — node configuration.
  *
  * ═══════════════════════════════════════════════════════════════════
  *  THIS IS THE ONLY FILE YOU EDIT TO ROTATE OR ADD NODES.
@@ -55,11 +55,11 @@ export const enabledRegistries = () =>
   DOCKER_REGISTRIES.filter((r) => r.enabled);
 
 export const SITE = {
-  name: "EdgeMirror",
+  name: "FetchPort",
   tagline: "GitHub · Docker · SourceForge 全球加速网关",
-  domain: "mirror.137101.xyz",
-  origin: "https://mirror.137101.xyz",
-  repo: "https://github.com/CloudflareFree/edgemirror",
+  domain: "fetchport.137101.xyz",
+  origin: "https://fetchport.137101.xyz",
+  repo: "https://github.com/CloudflareFree/fetchport",
   version: "1.0.0",
 };
 
@@ -151,14 +151,14 @@ export const SERVICES = [
     description:
       "对接 Docker Hub v2 registry，自动换取匿名 Bearer token，支持 manifest 与 blob 分层下载。",
     placeholder: "nginx:latest",
-    usage: "docker pull mirror.137101.xyz/{image}",
+    usage: "docker pull fetchport.137101.xyz/{image}",
     examples: [
       { label: "nginx", url: "library/nginx:latest" },
       { label: "busybox", url: "library/busybox:latest" },
       { label: "postgres", url: "library/postgres:16" },
     ],
     configSnippet: `{
-  "registry-mirrors": ["https://mirror.137101.xyz"]
+  "registry-mirrors": ["https://fetchport.137101.xyz"]
 }`,
   },
   {

@@ -54,7 +54,7 @@ export async function onRequestGet(ctx) {
 
       try {
         const res = await fetch(probeUrl, {
-          headers: { range: "bytes=0-0", "user-agent": "EdgeMirror-Health/1.0" },
+          headers: { range: "bytes=0-0", "user-agent": "FetchPort-Health/1.0" },
           redirect: "manual",
           signal: AbortSignal.timeout(TIMEOUT_MS),
         });

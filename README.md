@@ -1,8 +1,8 @@
-# EdgeMirror
+# FetchPort
 
 GitHub / Docker / SourceForge 全球加速网关，部署于 Cloudflare Workers + Pages 边缘网络。
 
-线上地址：<https://mirror.137101.xyz>
+线上地址：<https://fetchport.137101.xyz>
 
 ## 功能
 
@@ -101,7 +101,7 @@ E2E 用 CDP 驱动 headless Chrome，覆盖转换逻辑、节点切换、键盘�
 
 ## 部署
 
-Cloudflare Pages 已连接本仓库（`CloudflareFree/edgemirror`，分支 `main`）。
+Cloudflare Pages 已连接本仓库（`CloudflareFree/fetchport`，分支 `main`）。
 
 **每次 push 到 `main`，Cloudflare 自动拉取代码 → 构建 → 发布。** 不需要本地跑任何命令。
 

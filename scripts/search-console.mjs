@@ -10,8 +10,8 @@ if (!["submit", "status", "inspect"].includes(command) || process.argv.length > 
 }
 
 const site = process.env.GSC_SITE_URL || "sc-domain:137101.xyz";
-const sitemap = process.env.GSC_SITEMAP_URL || "https://mirror.137101.xyz/sitemap.xml";
-const inspectionUrl = process.env.GSC_INSPECTION_URL || "https://mirror.137101.xyz/";
+const sitemap = process.env.GSC_SITEMAP_URL || "https://fetchport.137101.xyz/sitemap.xml";
+const inspectionUrl = process.env.GSC_INSPECTION_URL || "https://fetchport.137101.xyz/";
 const api = "https://www.googleapis.com/webmasters/v3";
 const sitemapEndpoint = `${api}/sites/${encodeURIComponent(site)}/sitemaps/${encodeURIComponent(sitemap)}`;
 

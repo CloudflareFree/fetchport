@@ -9,4 +9,4 @@ Disallow: /sf/
 Disallow: /v2/
 Disallow: /token
 
-Sitemap: https://mirror.137101.xyz/sitemap.xml
+Sitemap: https://fetchport.137101.xyz/sitemap.xml

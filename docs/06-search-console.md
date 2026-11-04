@@ -28,9 +28,9 @@
 
 | 项 | 值 |
 |---|---|
-| Search Console 属性 | `sc-domain:137101.xyz`（覆盖子域 `mirror.137101.xyz`） |
-| Sitemap | `https://mirror.137101.xyz/sitemap.xml` |
-| 首页规范网址 | `https://mirror.137101.xyz/` |
+| Search Console 属性 | `sc-domain:137101.xyz`（覆盖子域 `fetchport.137101.xyz`） |
+| Sitemap | `https://fetchport.137101.xyz/sitemap.xml` |
+| 首页规范网址 | `https://fetchport.137101.xyz/` |
 | 服务账号 | `lrb-898@soulock.iam.gserviceaccount.com` |
 | 2026-11-04 实测属性权限 | `siteFullUser` |
 
@@ -82,11 +82,11 @@ Cloudflare 安全事件确认 `Python-urllib/3.14` 请求 `/sitemap.xml` 被 `so
 `ruleId: bic` 拦成 403。使用 Googlebot / Google-InspectionTool User-Agent 的本机探测
 返回 200；这些探测不是 Google 实际抓取的证据，事件中也未发现 Googlebot 被拦。
 
-已配置范围仅限 `mirror.137101.xyz` 的 `/robots.txt` 与 `/sitemap.xml` 的 WAF 自定义跳过规则：
+已配置范围仅限 `fetchport.137101.xyz` 的 `/robots.txt` 与 `/sitemap.xml` 的 WAF 自定义跳过规则：
 
 ```text
 phase: http_request_firewall_custom
-expression: (http.host eq "mirror.137101.xyz" and http.request.uri.path in {"/robots.txt" "/sitemap.xml"})
+expression: (http.host eq "fetchport.137101.xyz" and http.request.uri.path in {"/robots.txt" "/sitemap.xml"})
 action: skip
 action_parameters: {"products": ["bic"]}
 ref: edgemirror_public_crawl_files

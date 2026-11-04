@@ -115,7 +115,7 @@ const evaluate = async (expression, awaitPromise = true) => {
   return r.result.value;
 };
 
-console.log("\x1b[1m\x1b[36mEdgeMirror — browser E2E\x1b[0m");
+console.log("\x1b[1m\x1b[36mFetchPort — browser E2E\x1b[0m");
 console.log(`\x1b[2m${BASE}\x1b[0m\n`);
 
 await S("Page.navigate", { url: BASE });
@@ -123,7 +123,7 @@ await sleep(4000);
 
 // ---------------------------------------------------------------- boot state
 console.log("\x1b[1m启动与配置 / Boot\x1b[0m");
-ok("page has title", (await evaluate("document.title")).includes("EdgeMirror"));
+ok("page has title", (await evaluate("document.title")).includes("FetchPort"));
 ok(
   "nodes loaded into chips",
   (await evaluate("document.querySelectorAll('#node-chips .chip').length")) >= 1,

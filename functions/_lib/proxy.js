@@ -1,5 +1,5 @@
 /**
- * EdgeMirror — streaming proxy core.
+ * FetchPort — streaming proxy core.
  *
  * Two node modes:
  *   direct   — fetch the origin from the edge PoP
@@ -52,7 +52,7 @@ export const CORS = {
   "access-control-allow-headers":
     "Range, If-Range, Accept, Accept-Encoding, Authorization, Content-Type",
   "access-control-expose-headers":
-    "Content-Length, Content-Range, Content-Type, ETag, Last-Modified, Accept-Ranges, X-EdgeMirror-Node, X-EdgeMirror-Upstream, X-EdgeMirror-Elapsed",
+    "Content-Length, Content-Range, Content-Type, ETag, Last-Modified, Accept-Ranges, X-FetchPort-Node, X-FetchPort-Upstream, X-FetchPort-Elapsed",
   "access-control-max-age": "86400",
   "timing-allow-origin": "*",
 };
@@ -94,7 +94,7 @@ export function buildUpstreamHeaders(request, extra = {}) {
   }
   if (!out.has("accept")) out.set("accept", "*/*");
   if (!out.has("user-agent")) {
-    out.set("user-agent", "EdgeMirror/1.0 (+https://mirror.137101.xyz)");
+    out.set("user-agent", "FetchPort/1.0 (+https://fetchport.137101.xyz)");
   }
   for (const [k, v] of Object.entries(extra)) {
     if (v === null || v === undefined || v === "") out.delete(k);

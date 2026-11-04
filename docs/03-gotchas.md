@@ -237,7 +237,7 @@ token 有效期 1 小时，每次用之前重新签。
 ```bash
 curl -sX PATCH ".../dataStreams/<id>?updateMask=displayName" \
   -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
-  --data '{"displayName":"EdgeMirror"}'
+  --data '{"displayName":"FetchPort"}'
 ```
 
 ### 7.4 三层权限，缺一不可

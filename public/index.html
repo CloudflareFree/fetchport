@@ -4,53 +4,53 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>EdgeMirror — GitHub / Docker / SourceForge 全球加速网关</title>
+    <title>FetchPort — GitHub / Docker / SourceForge 全球加速网关</title>
     <meta
       name="description"
-      content="EdgeMirror 是基于 Cloudflare 边缘网络的 GitHub 加速下载代理，同时支持 Docker 镜像加速与 SourceForge 下载加速。Release 资产、Raw 原文、Archive 源码包、Gist 一键转发，支持 Range 断点续传，免配置即开即用。"
+      content="FetchPort 是基于 Cloudflare 边缘网络的 GitHub 加速下载代理，同时支持 Docker 镜像加速与 SourceForge 下载加速。Release 资产、Raw 原文、Archive 源码包、Gist 一键转发，支持 Range 断点续传，免配置即开即用。"
     />
     <meta
       name="keywords"
       content="GitHub加速,GitHub下载加速,GitHub代理,gh-proxy,Docker镜像加速,Docker Hub镜像,SourceForge加速,Cloudflare Workers,边缘加速,开源镜像站"
     />
-    <meta name="author" content="EdgeMirror" />
+    <meta name="author" content="FetchPort" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="theme-color" content="#070b14" />
     <meta name="color-scheme" content="dark" />
-    <link rel="canonical" href="https://mirror.137101.xyz/" />
+    <link rel="canonical" href="https://fetchport.137101.xyz/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="EdgeMirror" />
+    <meta property="og:site_name" content="FetchPort" />
     <meta property="og:locale" content="zh_CN" />
-    <meta property="og:url" content="https://mirror.137101.xyz/" />
-    <meta property="og:title" content="EdgeMirror — GitHub / Docker / SourceForge 全球加速网关" />
+    <meta property="og:url" content="https://fetchport.137101.xyz/" />
+    <meta property="og:title" content="FetchPort — GitHub / Docker / SourceForge 全球加速网关" />
     <meta
       property="og:description"
       content="基于 Cloudflare 边缘网络的代码分发加速网关。GitHub Release、Raw、Archive、Gist 与 Docker 镜像、SourceForge 文件一站式加速，支持断点续传。"
     />
-    <meta property="og:image" content="https://mirror.137101.xyz/assets/og.svg" />
+    <meta property="og:image" content="https://fetchport.137101.xyz/assets/og.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="EdgeMirror — GitHub / Docker / SourceForge 全球加速网关" />
+    <meta name="twitter:title" content="FetchPort — GitHub / Docker / SourceForge 全球加速网关" />
     <meta
       name="twitter:description"
       content="基于 Cloudflare 边缘网络的代码分发加速网关，GitHub / Docker / SourceForge 一站式加速。"
     />
-    <meta name="twitter:image" content="https://mirror.137101.xyz/assets/og.svg" />
+    <meta name="twitter:image" content="https://fetchport.137101.xyz/assets/og.svg" />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="alternate" hreflang="zh-CN" href="https://mirror.137101.xyz/" />
-    <link rel="alternate" hreflang="x-default" href="https://mirror.137101.xyz/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://fetchport.137101.xyz/" />
+    <link rel="alternate" hreflang="x-default" href="https://fetchport.137101.xyz/" />
 
     <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/assets/app.css?v=3" />
+    <link rel="stylesheet" href="/assets/app.css?v=23" />
 
     <script type="application/ld+json">
       {
@@ -58,27 +58,26 @@
         "@graph": [
           {
             "@type": "WebSite",
-            "@id": "https://mirror.137101.xyz/#website",
-            "url": "https://mirror.137101.xyz/",
-            "name": "EdgeMirror",
+            "@id": "https://fetchport.137101.xyz/#website",
+            "url": "https://fetchport.137101.xyz/",
+            "name": "FetchPort",
             "description": "GitHub / Docker / SourceForge 全球加速网关",
             "inLanguage": "zh-CN",
-            "publisher": { "@id": "https://mirror.137101.xyz/#org" }
+            "publisher": { "@id": "https://fetchport.137101.xyz/#org" }
           },
           {
             "@type": "Organization",
-            "@id": "https://mirror.137101.xyz/#org",
-            "name": "EdgeMirror",
-            "url": "https://mirror.137101.xyz/",
-            "logo": "https://mirror.137101.xyz/assets/og.svg",
-            "sameAs": ["https://github.com/CloudflareFree/edgemirror"]
+            "@id": "https://fetchport.137101.xyz/#org",
+            "name": "FetchPort",
+            "url": "https://fetchport.137101.xyz/",
+            "logo": "https://fetchport.137101.xyz/assets/og.svg"
           },
           {
             "@type": "SoftwareApplication",
-            "name": "EdgeMirror",
+            "name": "FetchPort",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Any",
-            "url": "https://mirror.137101.xyz/",
+            "url": "https://fetchport.137101.xyz/",
             "description": "GitHub、Docker Hub 与 SourceForge 的流式加速代理，部署于 Cloudflare 边缘网络。",
             "offers": {
               "@type": "Offer",
@@ -98,7 +97,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "EdgeMirror 是否免费？",
+                "name": "FetchPort 是否免费？",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "完全免费，无流量限制、无需注册。项目部署于 Cloudflare 边缘网络，静态资源请求不计费。"
@@ -117,7 +116,7 @@
                 "name": "Docker 镜像加速怎么配置？",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "在 Docker 的 daemon.json 中添加 registry-mirrors 指向 https://mirror.137101.xyz，然后重启 Docker 服务，即可直接 docker pull 官方镜像。"
+                  "text": "在 Docker 的 daemon.json 中添加 registry-mirrors 指向 https://fetchport.137101.xyz，然后重启 Docker 服务，即可直接 docker pull 官方镜像。"
                 }
               },
               {
@@ -142,7 +141,7 @@
       }
     </script>
 
-    <!-- Google Analytics 4 — property Soulock (561080392), stream EdgeMirror.
+    <!-- Google Analytics 4 — property Soulock (561080392), stream FetchPort.
          The config bootstrap is an external file (assets/ga.js) so the CSP
          needs no unsafe-inline for scripts. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHDLLWY51X"></script>
@@ -153,7 +152,7 @@
     <a class="skip-link" href="#main">跳到主要内容</a>
 
     <header class="nav">
-      <a class="brand" href="/" aria-label="EdgeMirror 首页">
+      <a class="brand" href="/" aria-label="FetchPort 首页">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v12" />
@@ -161,7 +160,7 @@
             <path d="M5 21h14" />
           </svg>
         </span>
-        <span>EdgeMirror</span>
+        <span>速取 <small>FetchPort</small></span>
         <span class="brand-tag">v1.0</span>
       </a>
 
@@ -200,7 +199,7 @@
         <div class="console">
           <div class="console-bar">
             <span class="console-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="console-title">edgemirror — shell</span>
+            <span class="console-title">fetchport — shell</span>
           </div>
 
           <div class="console-tabs" role="tablist" aria-label="加速服务类型">
@@ -437,8 +436,8 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
               <span class="step-num">3</span>
               <h3>Docker 镜像源</h3>
               <p>写入 <code style="font-family: var(--font-mono); font-size: 0.85em; color: #7dd3fc">/etc/docker/daemon.json</code> 后重启 Docker。</p>
-              <pre class="code"><button class="copy-btn" type="button" data-copy='{"registry-mirrors":["https://mirror.137101.xyz"]}'>复制</button><code><span class="c-key">{</span>
-  <span class="c-key">"registry-mirrors"</span>: <span class="c-str">["https://mirror.137101.xyz"]</span>
+              <pre class="code"><button class="copy-btn" type="button" data-copy='{"registry-mirrors":["https://fetchport.137101.xyz"]}'>复制</button><code><span class="c-key">{</span>
+  <span class="c-key">"registry-mirrors"</span>: <span class="c-str">["https://fetchport.137101.xyz"]</span>
 <span class="c-key">}</span>
 
 <span class="c-dim"># 重启生效</span>
@@ -452,7 +451,7 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
       <section id="why">
         <div class="wrap">
           <div class="sec-head">
-            <span class="sec-eyebrow">Why EdgeMirror</span>
+            <span class="sec-eyebrow">Why FetchPort</span>
             <h2>为高频拉取场景设计</h2>
             <p>面向 CI 流水线、容器构建与依赖安装，而不是偶尔的下载。</p>
           </div>
@@ -513,7 +512,7 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
 
           <div class="faq">
             <details>
-              <summary>EdgeMirror 是否免费？有流量限制吗？</summary>
+              <summary>FetchPort 是否免费？有流量限制吗？</summary>
               <div class="faq-body">
                 <p>
                   完全免费，无需注册，也没有人为的流量上限。站点运行在 Cloudflare Workers / Pages
@@ -546,12 +545,12 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
               <div class="faq-body">
                 <p>
                   编辑 <code>/etc/docker/daemon.json</code>，加入
-                  <code>"registry-mirrors": ["https://mirror.137101.xyz"]</code>，
+                  <code>"registry-mirrors": ["https://fetchport.137101.xyz"]</code>，
                   然后执行 <code>sudo systemctl restart docker</code>。
                 </p>
                 <p>
                   之后 <code>docker pull nginx</code> 会自动走加速链路。也可以显式指定：
-                  <code>docker pull mirror.137101.xyz/library/nginx:latest</code>。
+                  <code>docker pull fetchport.137101.xyz/library/nginx:latest</code>。
                 </p>
               </div>
             </details>
@@ -610,7 +609,7 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
                   <path d="M5 21h14" />
                 </svg>
               </span>
-              <span>EdgeMirror</span>
+              <span>速取 <small>FetchPort</small></span>
               <span class="brand-tag">v1.0</span>
             </a>
             <p>
@@ -637,15 +636,15 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
               <li><a href="/api/nodes">节点 API</a></li>
               <li><a href="/api/health">健康检查 API</a></li>
               <li>
-                <a href="https://github.com/CloudflareFree/edgemirror" rel="noopener noreferrer" target="_blank">源代码</a>
+                <span>速取 · 稳定传输</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <span>© <span id="year">2026</span> EdgeMirror · 基于 Cloudflare 边缘网络构建</span>
-          <code>mirror.137101.xyz</code>
+          <span>© <span id="year">2026</span> FetchPort · 基于 Cloudflare 边缘网络构建</span>
+          <code>fetchport.137101.xyz</code>
         </div>
       </div>
     </footer>
@@ -657,6 +656,6 @@ https://github.com/user/repo/releases/download/v1.0/app.zip
       <span id="toast-text">已复制</span>
     </div>
 
-    <script src="/assets/app.js?v=3" type="module"></script>
+    <script src="/assets/app.js?v=23" type="module"></script>
   </body>
 </html>

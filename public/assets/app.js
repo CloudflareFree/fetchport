@@ -1,5 +1,5 @@
 /**
- * EdgeMirror — frontend controller.
+ * FetchPort — frontend controller.
  *
  * No framework, no build step: the whole app is one module the browser can
  * run directly. State is derived from /api/nodes at boot; node health is a

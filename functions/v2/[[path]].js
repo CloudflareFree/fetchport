@@ -9,7 +9,7 @@ import { activeRegistry, DOCKER_REGISTRIES } from "../_config/nodes.js";
 /**
  * Docker / OCI registry mirror.
  *
- *   docker pull mirror.137101.xyz/nginx:latest
+ *   docker pull fetchport.137101.xyz/nginx:latest
  *
  * Docker hard-codes `/v2/` for registry clients, so this route lives at the
  * site root rather than under a /docker prefix.
@@ -65,7 +65,7 @@ async function handle(request) {
     if (v) headers.set(h, v);
   }
   headers.set("accept", request.headers.get("accept") || ACCEPT_MANIFEST);
-  headers.set("user-agent", "EdgeMirror/1.0");
+  headers.set("user-agent", "FetchPort/1.0");
 
   // A token is only valid for the registry that minted it, so route by the
   // tag we embedded in it. Untagged (client-supplied) credentials follow the

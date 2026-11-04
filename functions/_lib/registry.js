@@ -40,7 +40,7 @@ export async function pickRegistry() {
       // GET, not HEAD: several registries answer 405 to HEAD on /v2/.
       const res = await fetch(`${reg.registry}/v2/`, {
         method: "GET",
-        headers: { "user-agent": "EdgeMirror/1.0" },
+        headers: { "user-agent": "FetchPort/1.0" },
         signal: AbortSignal.timeout(PROBE_TIMEOUT_MS),
       });
       if (res.body) await res.body.cancel();

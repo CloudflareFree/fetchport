@@ -1,6 +1,6 @@
 {
-  "name": "EdgeMirror — GitHub / Docker / SourceForge 加速",
-  "short_name": "EdgeMirror",
+  "name": "FetchPort — GitHub / Docker / SourceForge 加速",
+  "short_name": "FetchPort",
   "description": "基于 Cloudflare 边缘网络的代码分发加速网关，支持 GitHub、Docker Hub 与 SourceForge。",
   "start_url": "/",
   "display": "standalone",
