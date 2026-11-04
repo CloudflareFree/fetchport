@@ -334,8 +334,18 @@ async function testSeo() {
     ["skip link for a11y", /class="skip-link"/.test(html)],
     ["aria-label on nav", /aria-label="主导航"/.test(html)],
     ["fonts preloaded", /rel="preload"[\s\S]*?woff2/.test(html)],
-    ["no external CDN scripts", !/<script[^>]+src="https?:/.test(html)],
+    // The only allowed external script is the GA4 loader; everything else
+    // must be same-origin (self-hosted, no CDN dependency for mainland users).
+    ["no external CDN scripts except GA",
+      [...html.matchAll(/<script[^>]+src="(https?:[^"]+)"/g)]
+        .map((m) => m[1])
+        .every((u) => u.startsWith("https://www.googletagmanager.com/"))],
     ["no external stylesheets", !/<link[^>]+href="https?:[^"]*\.css"/.test(html)],
+    // GA bootstrap must be an external file, not inline: the CSP forbids
+    // inline scripts, and an inline snippet silently fails at runtime.
+    ["GA config is external, not inline",
+      !/gtag\(\s*["']config["']/.test(html) && /\/assets\/ga\.js/.test(html)],
+    ["GA measurement ID present", /G-[A-Z0-9]{6,}/.test(html)],
   ];
 
   for (const [name, cond] of checks) ok(name, cond);

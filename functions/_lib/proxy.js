@@ -316,29 +316,61 @@ async function serveRangeFromFull(
   fullHeaders.delete("range");
   fullHeaders.delete("if-range");
 
-  let full;
-  try {
-    full = await fetch(fetchUrl, { method: "GET", headers: fullHeaders });
-  } catch {
+  // Two attempts: a long-haul fetch can drop mid-body, and a silently short
+  // buffer would be sliced into a plausible-looking but wrong 206. Better to
+  // fail loudly than to hand a downloader corrupt bytes.
+  let buf = null;
+  let lastErr = null;
+
+  for (let attempt = 0; attempt < 2 && !buf; attempt++) {
+    let full;
+    try {
+      full = await fetch(fetchUrl, { method: "GET", headers: fullHeaders });
+    } catch (err) {
+      lastErr = err;
+      continue;
+    }
+
+    if (!full.ok) {
+      // Pass the upstream error straight through rather than inventing one.
+      return new Response(full.body, {
+        status: full.status,
+        headers: { ...cleanResponseHeaders(full.headers), ...CORS },
+      });
+    }
+
+    const declared = Number(full.headers.get("content-length") || 0);
+    try {
+      const read = await full.arrayBuffer();
+      // A cut-short transfer is the failure mode we must never pass through:
+      // slicing a short buffer still yields a plausible-looking 206. Compare
+      // against both the response's own Content-Length and the total the
+      // original 206 declared in Content-Range — the latter survives even when
+      // the runtime strips content-length on a damaged response.
+      const expected = declared > 0 ? declared : knownTotal || 0;
+      if (expected > 0 && read.byteLength < expected) {
+        lastErr = new Error(
+          `truncated: got ${read.byteLength} of ${expected} bytes`
+        );
+        continue;
+      }
+      buf = read;
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+
+  if (!buf) {
     return json(
       {
         ok: false,
         error: "range_fallback_failed",
         message: "上游未能提供有效的分段响应，且回退获取失败。",
+        detail: String((lastErr && lastErr.message) || lastErr),
       },
       { status: 502 }
     );
   }
-
-  if (!full.ok) {
-    // Pass the upstream error straight through rather than inventing one.
-    return new Response(full.body, {
-      status: full.status,
-      headers: { ...cleanResponseHeaders(full.headers), ...CORS },
-    });
-  }
-
-  const buf = await full.arrayBuffer();
   // Prefer the real byte length; the declared total is used only to detect
   // the 206 we are replacing.
   const total = buf.byteLength || knownTotal || 0;
