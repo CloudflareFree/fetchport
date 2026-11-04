@@ -82,19 +82,25 @@ Cloudflare 安全事件确认 `Python-urllib/3.14` 请求 `/sitemap.xml` 被 `so
 `ruleId: bic` 拦成 403。使用 Googlebot / Google-InspectionTool User-Agent 的本机探测
 返回 200；这些探测不是 Google 实际抓取的证据，事件中也未发现 Googlebot 被拦。
 
-已配置范围仅限 `mirror.137101.xyz` 的 `/robots.txt` 与 `/sitemap.xml` 的 Configuration Rule：
+已配置范围仅限 `mirror.137101.xyz` 的 `/robots.txt` 与 `/sitemap.xml` 的 WAF 自定义跳过规则：
 
 ```text
-phase: http_config_settings
+phase: http_request_firewall_custom
 expression: (http.host eq "mirror.137101.xyz" and http.request.uri.path in {"/robots.txt" "/sitemap.xml"})
-action: set_config
-action_parameters: {"bic": false}
+action: skip
+action_parameters: {"products": ["bic"]}
 ref: edgemirror_public_crawl_files
 ```
 
-规则集 ID：`6c79d6afed694a62844289a5be223418`；规则 ID：`24eb11bebbc944b1a53aed4214e41cfc`。
-回滚只需禁用该规则，无需变更整个域的安全配置。此调整解决已复现的爬虫 BIC 障碍，
+规则集 ID：`02e1c48b1a68405d8a4cea53e16d841b`；规则 ID：`8a24c7630af14024bc2677df4d926aeb`。
+回滚只需禁用该规则，无需变更整个域的安全配置。此调整针对已复现的爬虫 BIC 障碍，
 Google 报错的最终原因仍需其处理结果或真实抓取记录验证。
+
+此次配置规则方式的 `set_config: {"bic": false}` 未消除实测的 403，因此改用官方支持的
+`skip.products: ["bic"]`，并删除了前一种配置规则。后续测试中 Python 客户端访问
+robots.txt 为 200，但 sitemap.xml 仍为 403，Pages 默认域名的 sitemap 也复现了 403；
+因此没有把本次调整记为“爬虫 403 已全面解决”。Googlebot 和 Google-InspectionTool
+User-Agent 的请求均为 200。不要叠加全域关闭 BIC 或按 User-Agent 字符串放行全部安全检查。
 
 `robots.txt` 统一允许公开页面和渲染资源，并排除 `/api/`、`/gh/`、`/sf/`、`/v2/` 与
 `/token`，避免将接口和代理内容当作站点页面抓取；robots 的禁止抓取不等于从索引移除。
