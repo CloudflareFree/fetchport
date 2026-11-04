@@ -9,6 +9,9 @@
     "test": "node test/integration.mjs",
     "test:e2e": "node test/e2e.mjs",
     "test:all": "node test/integration.mjs && node test/e2e.mjs",
+    "seo:submit": "node scripts/search-console.mjs submit",
+    "seo:status": "node scripts/search-console.mjs status",
+    "seo:inspect": "node scripts/search-console.mjs inspect",
     "build": "echo 'EdgeMirror: static assets + Pages Functions, no build step required'"
   },
   "type": "module",

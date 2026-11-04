@@ -9,6 +9,7 @@ GitHub / Docker / SourceForge 加速网关的技术文档。面向维护者。
 | [03-gotchas.md](03-gotchas.md) | 踩坑记录：Range 损坏、截断、registry 分裂、缓存、CSP 等 |
 | [04-testing.md](04-testing.md) | 集成/E2E 测试、辅助工具、部署后验证清单 |
 | [05-analytics.md](05-analytics.md) | GA4 接入、三层权限、API 用法、AdSense 约束 |
+| [06-search-console.md](06-search-console.md) | 部署后提交 sitemap、查询索引状态、手动请求索引及技术检查 |
 
 顶层 [README.md](../README.md) 是面向使用者的功能说明和节点配置指南。
 
@@ -25,4 +26,5 @@ GitHub / Docker / SourceForge 加速网关的技术文档。面向维护者。
 | 搞清楚某个报错 | [03](03-gotchas.md) |
 | 部署后验证 | [04](04-testing.md#部署后必做的验证) |
 | 改 GA 或查数据 | [05](05-analytics.md) |
+| 提交 Google 发现网址、查询是否收录 | [06](06-search-console.md) |
 | 理解 Range 为什么自己切片 | [03 #1](03-gotchas.md) |

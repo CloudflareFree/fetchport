@@ -143,6 +143,13 @@ GitHub 相关：`github.com` 的 release 下载会超时，走 `ghfast.top` 代�
 
 ## 日常操作
 
+### 部署后提交 Google Sitemap
+
+新增公开页面或变更 sitemap 后，先确认 Git 部署成功、线上 sitemap 和目标页面可访问，
+再按 [Search Console 步骤](06-search-console.md) 执行 `npm run seo:submit`。
+通过 `npm run seo:status` 查看 sitemap 处理情况，通过 `npm run seo:inspect` 查看首页索引状态。
+提交成功表示 Google 已接收 sitemap，不表示页面已抓取或已收录。
+
 ### 换加速节点
 
 编辑 `functions/_config/nodes.js`：
